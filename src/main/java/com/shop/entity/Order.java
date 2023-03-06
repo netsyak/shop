@@ -16,12 +16,12 @@ import java.util.List;
 public class Order {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "order_id")
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "member_id")
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="member_id")
     private Member member;
 
     private LocalDateTime orderDate; //주문일
@@ -35,4 +35,6 @@ public class Order {
     private List<OrderItem> orderItems = new ArrayList<>();
     private LocalDateTime regTime;
     private LocalDateTime updateTime;
+
+
 }
