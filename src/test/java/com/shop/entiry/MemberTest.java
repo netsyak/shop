@@ -43,5 +43,6 @@ public class MemberTest {
         System.out.println("create member : " + member.getCreatedBy());
         System.out.println("modify member : " + member.getModifiedBy());
 
+
     }
 }
