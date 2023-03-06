@@ -16,11 +16,11 @@ import java.util.List;
 public class Order {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue //(strategy = GenerationType.AUTO)
     @Column(name = "order_id")
     private Long id;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="member_id")
     private Member member;
 
@@ -29,9 +29,11 @@ public class Order {
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus; //주문상태
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL
+            , orphanRemoval = true, fetch = FetchType.LAZY)
     //cascade = CascadeType.ALL  -- 영속성 전이
     //orphanRemoval = true --고아객체 제거하기
+    //fetch = FetchType.LAZY -- 지연 로딩 하기
     private List<OrderItem> orderItems = new ArrayList<>();
     private LocalDateTime regTime;
     private LocalDateTime updateTime;
