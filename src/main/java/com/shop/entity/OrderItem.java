@@ -28,7 +28,8 @@ public class OrderItem {
     private int orderPrice; //주문가격
     private int count; //수량
 
-    private LocalDateTime regTime;
-    private LocalDateTime updateTime;
+//    private LocalDateTime regTime;
+//    private LocalDateTime updateTime;
+    //BaseEntity를 상속받도록 소스코드를 수정함
 
 }
