@@ -7,6 +7,7 @@ import com.shop.entity.Order;
 import com.shop.entity.OrderItem;
 import com.shop.repository.ItemRepository;
 import com.shop.repository.MemberRepository;
+import com.shop.repository.OrderItemRepository;
 import com.shop.repository.OrderRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -104,5 +105,11 @@ class OrderTest {
         order.getOrderItems().remove(0);
         em.flush();
         }
+
+        @Autowired
+    OrderItemRepository orderItemRepository;
+
+    @Test
+    @DisplayName("지연 로딩 테스트")
 
     }
