@@ -26,7 +26,7 @@ public class MemberTest {
     EntityManager em;
 
     @Test
-    @DisplayName("Auditing")
+    @DisplayName("Auditing 테스트")
     @WithMockUser(username= "gildong", roles = "USER")
     public void auditingTest(){
         Member newMember = new Member();
