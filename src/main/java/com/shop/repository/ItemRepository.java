@@ -9,7 +9,7 @@ import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import java.util.List;
 
 public interface ItemRepository extends JpaRepository<Item, Long>,
-        QuerydslPredicateExecutor<Item>,ItemRepositoryCustom {
+        QuerydslPredicateExecutor<Item>, ItemRepositoryCustom {
 
     List<Item> findByItemNm(String itemNm); //상품 이름 찾기
 
@@ -27,4 +27,6 @@ public interface ItemRepository extends JpaRepository<Item, Long>,
 
     @Query(value = "select * from item i where i.item_detail like %:itemDetail% order by i.price desc", nativeQuery = true)
     List<Item> findByItemDetailByNative(@Param("itemDetail") String itemDetail);
+
+
 }
