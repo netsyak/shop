@@ -33,7 +33,7 @@ public class ItemController {
         model.addAttribute("itemFormDto", new ItemFormDto());
         return "item/itemForm";
     }
-
+    //스프링부트 p.249
     @PostMapping(value = "/admin/item/new")
     public String itemNew(@Valid ItemFormDto itemFormDto, BindingResult bindingResult,
                           Model model, @RequestParam("itemImgFile") List<MultipartFile> itemImgFileList){
